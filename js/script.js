@@ -46,4 +46,30 @@ function handleOperator(nextOperator) {
       calculator.operator = nextOperator;
 }
 
+const performCalculation = {
+    '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+  
+    '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+  
+    '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+  
+    '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+  
+    '=': (firstOperand, secondOperand) => secondOperand
+};
+  
+function resetCalculator() {
+    calculator.displayValue = '0';
+    calculator.firstOperand = null;
+    calculator.waitingForSecondOperand = false;
+    calculator.operator = null;
+}
+  
+function updateDisplay() {
+    const display = document.querySelector('.calculator-screen');
+    display.value = calculator.displayValue;
+}
+  
+updateDisplay();
+
 inputValue(value);
